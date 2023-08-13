@@ -7,10 +7,10 @@ COPY . /opt/test
 WORKDIR /opt/test
 
 # Use GCC to compile the Test.cpp source file
-RUN g++ -o app app.cpp
+RUN g++ -o app main.cpp
 
 # Run the program output from the previous stage
 FROM ubuntu:bionic
 WORKDIR /opt/test
 COPY --from=build /opt/test ./
-CMD ["./app"
+CMD ["./app"]
